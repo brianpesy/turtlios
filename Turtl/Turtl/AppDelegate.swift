@@ -2,23 +2,20 @@
 //  AppDelegate.swift
 //  Turtl
 //
-//  Created by Nikki on 01/02/2018.
-//  Copyright © 2018 CS 192. All rights reserved.
+//  Created by Brian Sy on 05/02/2018.
+//  Copyright © 2018 Brian Sy. All rights reserved.
 //
 
 import UIKit
 
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    
     var window: UIWindow?
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 

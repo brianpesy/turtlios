@@ -7,31 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		045D32BB202366940007B2CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D32BA202366940007B2CC /* AppDelegate.swift */; };
-		045D32BD202366940007B2CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D32BC202366940007B2CC /* ViewController.swift */; };
-		045D32C0202366940007B2CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045D32BE202366940007B2CC /* Main.storyboard */; };
-		045D32C2202366940007B2CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045D32C1202366940007B2CC /* Assets.xcassets */; };
-		045D32C5202366940007B2CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045D32C3202366940007B2CC /* LaunchScreen.storyboard */; };
-		045D32CD20237B000007B2CC /* BoardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D32CC20237B000007B2CC /* BoardsViewController.swift */; };
-		045D32CF20238FE70007B2CC /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D32CE20238FE70007B2CC /* ShareViewController.swift */; };
-		045D32D12023B6290007B2CC /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D32D02023B6290007B2CC /* LaunchViewController.swift */; };
+		F16D4C4620285B54005404A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D4C4520285B54005404A1 /* AppDelegate.swift */; };
+		F16D4C4820285B54005404A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D4C4720285B54005404A1 /* ViewController.swift */; };
+		F16D4C4B20285B54005404A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16D4C4920285B54005404A1 /* Main.storyboard */; };
+		F16D4C4D20285B54005404A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16D4C4C20285B54005404A1 /* Assets.xcassets */; };
+		F16D4C5020285B54005404A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16D4C4E20285B54005404A1 /* LaunchScreen.storyboard */; };
+		F16D4C5B20285B54005404A1 /* TurtlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D4C5A20285B54005404A1 /* TurtlTests.swift */; };
+		F16D4C6620285B54005404A1 /* TurtlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D4C6520285B54005404A1 /* TurtlUITests.swift */; };
+		F16D4C7420286243005404A1 /* Icon-256.png in Resources */ = {isa = PBXBuildFile; fileRef = F16D4C7320286242005404A1 /* Icon-256.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F16D4C5720285B54005404A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F16D4C3A20285B54005404A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F16D4C4120285B54005404A1;
+			remoteInfo = Turtl;
+		};
+		F16D4C6220285B54005404A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F16D4C3A20285B54005404A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F16D4C4120285B54005404A1;
+			remoteInfo = Turtl;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		045D32B7202366930007B2CC /* Turtl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Turtl.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		045D32BA202366940007B2CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		045D32BC202366940007B2CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		045D32BF202366940007B2CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		045D32C1202366940007B2CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		045D32C4202366940007B2CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		045D32C6202366940007B2CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		045D32CC20237B000007B2CC /* BoardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsViewController.swift; sourceTree = "<group>"; };
-		045D32CE20238FE70007B2CC /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		045D32D02023B6290007B2CC /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		F16D4C4220285B54005404A1 /* Turtl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Turtl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F16D4C4520285B54005404A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F16D4C4720285B54005404A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F16D4C4A20285B54005404A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F16D4C4C20285B54005404A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F16D4C4F20285B54005404A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F16D4C5120285B54005404A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F16D4C5620285B54005404A1 /* TurtlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurtlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F16D4C5A20285B54005404A1 /* TurtlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtlTests.swift; sourceTree = "<group>"; };
+		F16D4C5C20285B54005404A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F16D4C6120285B54005404A1 /* TurtlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurtlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F16D4C6520285B54005404A1 /* TurtlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtlUITests.swift; sourceTree = "<group>"; };
+		F16D4C6720285B54005404A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F16D4C7320286242005404A1 /* Icon-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-256.png"; path = "../../../turtlios/Turtl/Icons/Icon-256.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		045D32B4202366930007B2CC /* Frameworks */ = {
+		F16D4C3F20285B54005404A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16D4C5320285B54005404A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16D4C5E20285B54005404A1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,48 +76,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		045D32AE202366930007B2CC = {
+		F16D4C3920285B54005404A1 = {
 			isa = PBXGroup;
 			children = (
-				045D32B9202366940007B2CC /* Turtl */,
-				045D32B8202366930007B2CC /* Products */,
+				F16D4C4420285B54005404A1 /* Turtl */,
+				F16D4C5920285B54005404A1 /* TurtlTests */,
+				F16D4C6420285B54005404A1 /* TurtlUITests */,
+				F16D4C4320285B54005404A1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		045D32B8202366930007B2CC /* Products */ = {
+		F16D4C4320285B54005404A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				045D32B7202366930007B2CC /* Turtl.app */,
+				F16D4C4220285B54005404A1 /* Turtl.app */,
+				F16D4C5620285B54005404A1 /* TurtlTests.xctest */,
+				F16D4C6120285B54005404A1 /* TurtlUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		045D32B9202366940007B2CC /* Turtl */ = {
+		F16D4C4420285B54005404A1 /* Turtl */ = {
 			isa = PBXGroup;
 			children = (
-				045D32BA202366940007B2CC /* AppDelegate.swift */,
-				045D32BC202366940007B2CC /* ViewController.swift */,
-				045D32CC20237B000007B2CC /* BoardsViewController.swift */,
-				045D32BE202366940007B2CC /* Main.storyboard */,
-				045D32D02023B6290007B2CC /* LaunchViewController.swift */,
-				045D32CE20238FE70007B2CC /* ShareViewController.swift */,
-				045D32C1202366940007B2CC /* Assets.xcassets */,
-				045D32C3202366940007B2CC /* LaunchScreen.storyboard */,
-				045D32C6202366940007B2CC /* Info.plist */,
+				F16D4C4520285B54005404A1 /* AppDelegate.swift */,
+				F16D4C4720285B54005404A1 /* ViewController.swift */,
+				F16D4C4920285B54005404A1 /* Main.storyboard */,
+				F16D4C7320286242005404A1 /* Icon-256.png */,
+				F16D4C4C20285B54005404A1 /* Assets.xcassets */,
+				F16D4C4E20285B54005404A1 /* LaunchScreen.storyboard */,
+				F16D4C5120285B54005404A1 /* Info.plist */,
 			);
 			path = Turtl;
+			sourceTree = "<group>";
+		};
+		F16D4C5920285B54005404A1 /* TurtlTests */ = {
+			isa = PBXGroup;
+			children = (
+				F16D4C5A20285B54005404A1 /* TurtlTests.swift */,
+				F16D4C5C20285B54005404A1 /* Info.plist */,
+			);
+			path = TurtlTests;
+			sourceTree = "<group>";
+		};
+		F16D4C6420285B54005404A1 /* TurtlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F16D4C6520285B54005404A1 /* TurtlUITests.swift */,
+				F16D4C6720285B54005404A1 /* Info.plist */,
+			);
+			path = TurtlUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		045D32B6202366930007B2CC /* Turtl */ = {
+		F16D4C4120285B54005404A1 /* Turtl */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 045D32C9202366940007B2CC /* Build configuration list for PBXNativeTarget "Turtl" */;
+			buildConfigurationList = F16D4C6A20285B54005404A1 /* Build configuration list for PBXNativeTarget "Turtl" */;
 			buildPhases = (
-				045D32B3202366930007B2CC /* Sources */,
-				045D32B4202366930007B2CC /* Frameworks */,
-				045D32B5202366930007B2CC /* Resources */,
+				F16D4C3E20285B54005404A1 /* Sources */,
+				F16D4C3F20285B54005404A1 /* Frameworks */,
+				F16D4C4020285B54005404A1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -90,26 +145,72 @@
 			);
 			name = Turtl;
 			productName = Turtl;
-			productReference = 045D32B7202366930007B2CC /* Turtl.app */;
+			productReference = F16D4C4220285B54005404A1 /* Turtl.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F16D4C5520285B54005404A1 /* TurtlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F16D4C6D20285B54005404A1 /* Build configuration list for PBXNativeTarget "TurtlTests" */;
+			buildPhases = (
+				F16D4C5220285B54005404A1 /* Sources */,
+				F16D4C5320285B54005404A1 /* Frameworks */,
+				F16D4C5420285B54005404A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F16D4C5820285B54005404A1 /* PBXTargetDependency */,
+			);
+			name = TurtlTests;
+			productName = TurtlTests;
+			productReference = F16D4C5620285B54005404A1 /* TurtlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F16D4C6020285B54005404A1 /* TurtlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F16D4C7020285B54005404A1 /* Build configuration list for PBXNativeTarget "TurtlUITests" */;
+			buildPhases = (
+				F16D4C5D20285B54005404A1 /* Sources */,
+				F16D4C5E20285B54005404A1 /* Frameworks */,
+				F16D4C5F20285B54005404A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F16D4C6320285B54005404A1 /* PBXTargetDependency */,
+			);
+			name = TurtlUITests;
+			productName = TurtlUITests;
+			productReference = F16D4C6120285B54005404A1 /* TurtlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		045D32AF202366930007B2CC /* Project object */ = {
+		F16D4C3A20285B54005404A1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "CS 192";
+				ORGANIZATIONNAME = "Brian Sy";
 				TargetAttributes = {
-					045D32B6202366930007B2CC = {
+					F16D4C4120285B54005404A1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					F16D4C5520285B54005404A1 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F16D4C4120285B54005404A1;
+					};
+					F16D4C6020285B54005404A1 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F16D4C4120285B54005404A1;
+					};
 				};
 			};
-			buildConfigurationList = 045D32B2202366930007B2CC /* Build configuration list for PBXProject "Turtl" */;
+			buildConfigurationList = F16D4C3D20285B54005404A1 /* Build configuration list for PBXProject "Turtl" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -117,57 +218,100 @@
 				en,
 				Base,
 			);
-			mainGroup = 045D32AE202366930007B2CC;
-			productRefGroup = 045D32B8202366930007B2CC /* Products */;
+			mainGroup = F16D4C3920285B54005404A1;
+			productRefGroup = F16D4C4320285B54005404A1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				045D32B6202366930007B2CC /* Turtl */,
+				F16D4C4120285B54005404A1 /* Turtl */,
+				F16D4C5520285B54005404A1 /* TurtlTests */,
+				F16D4C6020285B54005404A1 /* TurtlUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		045D32B5202366930007B2CC /* Resources */ = {
+		F16D4C4020285B54005404A1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				045D32C5202366940007B2CC /* LaunchScreen.storyboard in Resources */,
-				045D32C2202366940007B2CC /* Assets.xcassets in Resources */,
-				045D32C0202366940007B2CC /* Main.storyboard in Resources */,
+				F16D4C5020285B54005404A1 /* LaunchScreen.storyboard in Resources */,
+				F16D4C4D20285B54005404A1 /* Assets.xcassets in Resources */,
+				F16D4C7420286243005404A1 /* Icon-256.png in Resources */,
+				F16D4C4B20285B54005404A1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16D4C5420285B54005404A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16D4C5F20285B54005404A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		045D32B3202366930007B2CC /* Sources */ = {
+		F16D4C3E20285B54005404A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				045D32BD202366940007B2CC /* ViewController.swift in Sources */,
-				045D32D12023B6290007B2CC /* LaunchViewController.swift in Sources */,
-				045D32BB202366940007B2CC /* AppDelegate.swift in Sources */,
-				045D32CF20238FE70007B2CC /* ShareViewController.swift in Sources */,
-				045D32CD20237B000007B2CC /* BoardsViewController.swift in Sources */,
+				F16D4C4820285B54005404A1 /* ViewController.swift in Sources */,
+				F16D4C4620285B54005404A1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16D4C5220285B54005404A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F16D4C5B20285B54005404A1 /* TurtlTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16D4C5D20285B54005404A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F16D4C6620285B54005404A1 /* TurtlUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F16D4C5820285B54005404A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F16D4C4120285B54005404A1 /* Turtl */;
+			targetProxy = F16D4C5720285B54005404A1 /* PBXContainerItemProxy */;
+		};
+		F16D4C6320285B54005404A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F16D4C4120285B54005404A1 /* Turtl */;
+			targetProxy = F16D4C6220285B54005404A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		045D32BE202366940007B2CC /* Main.storyboard */ = {
+		F16D4C4920285B54005404A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				045D32BF202366940007B2CC /* Base */,
+				F16D4C4A20285B54005404A1 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		045D32C3202366940007B2CC /* LaunchScreen.storyboard */ = {
+		F16D4C4E20285B54005404A1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				045D32C4202366940007B2CC /* Base */,
+				F16D4C4F20285B54005404A1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -175,7 +319,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		045D32C7202366940007B2CC /* Debug */ = {
+		F16D4C6820285B54005404A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -232,7 +376,7 @@
 			};
 			name = Debug;
 		};
-		045D32C8202366940007B2CC /* Release */ = {
+		F16D4C6920285B54005404A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -282,56 +426,136 @@
 			};
 			name = Release;
 		};
-		045D32CA202366940007B2CC /* Debug */ = {
+		F16D4C6B20285B54005404A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Turtl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = turtlios.Turtl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrianSy.Turtl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		045D32CB202366940007B2CC /* Release */ = {
+		F16D4C6C20285B54005404A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Turtl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = turtlios.Turtl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrianSy.Turtl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
+		F16D4C6E20285B54005404A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurtlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrianSy.TurtlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Turtl.app/Turtl";
+			};
+			name = Debug;
+		};
+		F16D4C6F20285B54005404A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurtlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrianSy.TurtlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Turtl.app/Turtl";
+			};
+			name = Release;
+		};
+		F16D4C7120285B54005404A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurtlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrianSy.TurtlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Turtl;
+			};
+			name = Debug;
+		};
+		F16D4C7220285B54005404A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurtlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrianSy.TurtlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Turtl;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		045D32B2202366930007B2CC /* Build configuration list for PBXProject "Turtl" */ = {
+		F16D4C3D20285B54005404A1 /* Build configuration list for PBXProject "Turtl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				045D32C7202366940007B2CC /* Debug */,
-				045D32C8202366940007B2CC /* Release */,
+				F16D4C6820285B54005404A1 /* Debug */,
+				F16D4C6920285B54005404A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		045D32C9202366940007B2CC /* Build configuration list for PBXNativeTarget "Turtl" */ = {
+		F16D4C6A20285B54005404A1 /* Build configuration list for PBXNativeTarget "Turtl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				045D32CA202366940007B2CC /* Debug */,
-				045D32CB202366940007B2CC /* Release */,
+				F16D4C6B20285B54005404A1 /* Debug */,
+				F16D4C6C20285B54005404A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F16D4C6D20285B54005404A1 /* Build configuration list for PBXNativeTarget "TurtlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F16D4C6E20285B54005404A1 /* Debug */,
+				F16D4C6F20285B54005404A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F16D4C7020285B54005404A1 /* Build configuration list for PBXNativeTarget "TurtlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F16D4C7120285B54005404A1 /* Debug */,
+				F16D4C7220285B54005404A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 045D32AF202366930007B2CC /* Project object */;
+	rootObject = F16D4C3A20285B54005404A1 /* Project object */;
 }
