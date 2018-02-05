@@ -14,10 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet var password: UITextField!
     
     @IBAction func loginEnter(_ sender: Any) {
-        //Verify email
+        //Verify email, need conditional segue as well
         
-        if (username.text != nil) {
-            
+        if username.text != "" && password.text != ""{
+            performSegue(withIdentifier: "loginSegue", sender: self)
+            print(username.text!)
         } else {
             
         }

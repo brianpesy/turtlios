@@ -75,7 +75,6 @@
                                 <state key="normal" title="Enter"/>
                                 <connections>
                                     <action selector="loginEnter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hl6-uE-SSe"/>
-                                    <segue destination="olk-gH-6cN" kind="show" animates="NO" id="qnI-bs-PVl"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Icon-256.png" translatesAutoresizingMaskIntoConstraints="NO" id="eZr-4a-fw0">
@@ -113,6 +112,7 @@
                     <connections>
                         <outlet property="password" destination="G9s-4i-MOp" id="Ktb-9c-c09"/>
                         <outlet property="username" destination="OeG-KZ-fAG" id="P6K-3O-OG8"/>
+                        <segue destination="olk-gH-6cN" kind="show" identifier="loginSegue" animates="NO" id="5XP-lw-DNm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
