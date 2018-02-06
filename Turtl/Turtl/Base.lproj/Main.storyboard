@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,6 +56,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in before? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVQ-uS-hbc">
+                                <rect key="frame" x="90.5" y="553" width="194" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="194" id="Hif-2A-Idm"/>
+                                    <constraint firstAttribute="height" constant="21" id="YjG-49-oAB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.9219629851680522" green="0.92298640904413565" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just press login!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQk-rh-Rg9">
+                                <rect key="frame" x="124" y="582" width="126" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0as-dH-Pid"/>
+                                    <constraint firstAttribute="width" constant="126" id="ocs-TQ-HIe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -64,10 +85,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xzc-bb-CSg" secondAttribute="trailing" constant="127" id="JmS-yU-6tq"/>
                             <constraint firstItem="RzS-uI-0qM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T7v-mK-Iuo"/>
                             <constraint firstItem="RzS-uI-0qM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="U57-vq-eOW"/>
+                            <constraint firstItem="XVQ-uS-hbc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="533" id="VgF-0M-Mf8"/>
                             <constraint firstAttribute="bottom" secondItem="RzS-uI-0qM" secondAttribute="bottom" constant="-12" id="b08-sP-vQz"/>
                             <constraint firstItem="OeG-KZ-fAG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="21.5" id="e5u-Wf-i1I"/>
+                            <constraint firstItem="XVQ-uS-hbc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eg6-Bx-wdd"/>
+                            <constraint firstItem="yQk-rh-Rg9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="562" id="g3H-vA-V71"/>
                             <constraint firstItem="DdI-aZ-auP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gjs-0b-mqp"/>
                             <constraint firstItem="G9s-4i-MOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="21.5" id="mhA-G8-k1a"/>
+                            <constraint firstItem="yQk-rh-Rg9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ngl-py-yqi"/>
                             <constraint firstItem="G9s-4i-MOp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="388" id="nqE-Pj-aKd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -75,6 +100,7 @@
                     <connections>
                         <outlet property="password" destination="G9s-4i-MOp" id="Ktb-9c-c09"/>
                         <outlet property="username" destination="OeG-KZ-fAG" id="P6K-3O-OG8"/>
+                        <outlet property="usernameLabel" destination="XVQ-uS-hbc" id="ZlY-q7-dbH"/>
                         <segue destination="olk-gH-6cN" kind="show" identifier="loginSegue" animates="NO" id="5XP-lw-DNm"/>
                     </connections>
                 </viewController>
@@ -82,23 +108,136 @@
             </objects>
             <point key="canvasLocation" x="92" y="117.39130434782609"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="rDb-h2-9fi">
             <objects>
-                <viewController id="olk-gH-6cN" sceneMemberID="viewController">
+                <viewController id="olk-gH-6cN" customClass="MainViewController" customModule="Turtl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ExR-K3-SZw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Main copy" translatesAutoresizingMaskIntoConstraints="NO" id="trj-SW-6rd">
+                                <rect key="frame" x="0.0" y="22" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpP-sH-STF">
+                                <rect key="frame" x="132" y="66" width="118" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="Lxm-H7-CO9" kind="show" animates="NO" id="mLZ-78-grw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNg-DQ-eUj">
+                                <rect key="frame" x="251" y="66" width="118" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="P5s-qE-Lt4" kind="show" animates="NO" id="yY7-5L-UTX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333196759223938" green="0.133340984582901" blue="0.13331243395805359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="XJX-NF-1A8"/>
                     </view>
+                    <connections>
+                        <outlet property="boardsButton" destination="OpP-sH-STF" id="3sw-Py-GFg"/>
+                        <outlet property="main" destination="trj-SW-6rd" id="Uvm-QV-Pzo"/>
+                        <outlet property="sharingButton" destination="vNg-DQ-eUj" id="ZNu-jd-Ycp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tSa-8Z-lBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="118"/>
+            <point key="canvasLocation" x="1048.8" y="117.39130434782609"/>
+        </scene>
+        <!--Boards View Controller-->
+        <scene sceneID="k0a-4S-Lzl">
+            <objects>
+                <viewController id="Lxm-H7-CO9" customClass="BoardsViewController" customModule="Turtl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cdQ-ZZ-d4f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Board copy" translatesAutoresizingMaskIntoConstraints="NO" id="v8S-DB-wRc">
+                                <rect key="frame" x="0.0" y="22" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKT-A5-Hup">
+                                <rect key="frame" x="7" y="66" width="118" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="olk-gH-6cN" kind="show" animates="NO" id="aCS-EY-Opu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gm6-hY-fXt">
+                                <rect key="frame" x="251" y="66" width="118" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="P5s-qE-Lt4" kind="show" animates="NO" id="ycK-sR-d3k"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333196759223938" green="0.133340984582901" blue="0.13331243395805359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="dNY-Hr-A0J"/>
+                    </view>
+                    <connections>
+                        <outlet property="boards" destination="v8S-DB-wRc" id="Y1v-32-wro"/>
+                        <outlet property="mainButton" destination="xKT-A5-Hup" id="vN8-8Z-8ls"/>
+                        <outlet property="sharingButton" destination="gm6-hY-fXt" id="wGh-FM-Pde"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rkg-1S-Jk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2023" y="117"/>
+        </scene>
+        <!--Sharing View Controller-->
+        <scene sceneID="nhu-6q-Tbq">
+            <objects>
+                <viewController id="P5s-qE-Lt4" customClass="SharingViewController" customModule="Turtl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9pt-eI-049">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sharing" translatesAutoresizingMaskIntoConstraints="NO" id="po2-BZ-Bb2">
+                                <rect key="frame" x="0.0" y="23" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6F-b4-1fq">
+                                <rect key="frame" x="7" y="68" width="118" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="olk-gH-6cN" kind="show" animates="NO" id="cpT-ip-I7P"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oph-QX-F0w">
+                                <rect key="frame" x="128" y="68" width="118" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="Lxm-H7-CO9" kind="show" animates="NO" id="sjh-uY-qHP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333196759223938" green="0.133340984582901" blue="0.13331243395805359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="jgU-KT-PWU"/>
+                    </view>
+                    <connections>
+                        <outlet property="boardsButton" destination="oph-QX-F0w" id="pgD-Me-WFH"/>
+                        <outlet property="mainButton" destination="W6F-b4-1fq" id="NTj-xs-cYv"/>
+                        <outlet property="sharing" destination="po2-BZ-Bb2" id="Qir-ce-KWY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mZj-UH-6RQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3012" y="117"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Board copy" width="719" height="1233"/>
+        <image name="Main copy" width="719" height="1233"/>
+        <image name="Sharing" width="720" height="1232"/>
         <image name="loginfull" width="414" height="736"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="yY7-5L-UTX"/>
+        <segue reference="sjh-uY-qHP"/>
+        <segue reference="5XP-lw-DNm"/>
+    </inferredMetricsTieBreakers>
 </document>

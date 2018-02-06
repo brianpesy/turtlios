@@ -9,10 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var username: UITextField!
     
     @IBOutlet var password: UITextField!
     
+//    let name = UserDefaults.standard.string(forKey: "username")
+//    usernameLabel.text = "Are you \(name)?"
+//
     @IBAction func loginEnter(_ sender: Any) {
         //Verify email, need conditional segue as well
         
