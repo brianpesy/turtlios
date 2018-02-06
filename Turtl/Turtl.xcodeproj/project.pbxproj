@@ -14,7 +14,6 @@
 		F16D4C5020285B54005404A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16D4C4E20285B54005404A1 /* LaunchScreen.storyboard */; };
 		F16D4C5B20285B54005404A1 /* TurtlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D4C5A20285B54005404A1 /* TurtlTests.swift */; };
 		F16D4C6620285B54005404A1 /* TurtlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D4C6520285B54005404A1 /* TurtlUITests.swift */; };
-		F16D4C7420286243005404A1 /* Icon-256.png in Resources */ = {isa = PBXBuildFile; fileRef = F16D4C7320286242005404A1 /* Icon-256.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +47,6 @@
 		F16D4C6120285B54005404A1 /* TurtlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurtlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16D4C6520285B54005404A1 /* TurtlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtlUITests.swift; sourceTree = "<group>"; };
 		F16D4C6720285B54005404A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F16D4C7320286242005404A1 /* Icon-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-256.png"; path = "../../../turtlios/Turtl/Icons/Icon-256.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +100,6 @@
 				F16D4C4520285B54005404A1 /* AppDelegate.swift */,
 				F16D4C4720285B54005404A1 /* ViewController.swift */,
 				F16D4C4920285B54005404A1 /* Main.storyboard */,
-				F16D4C7320286242005404A1 /* Icon-256.png */,
 				F16D4C4C20285B54005404A1 /* Assets.xcassets */,
 				F16D4C4E20285B54005404A1 /* LaunchScreen.storyboard */,
 				F16D4C5120285B54005404A1 /* Info.plist */,
@@ -237,7 +234,6 @@
 			files = (
 				F16D4C5020285B54005404A1 /* LaunchScreen.storyboard in Resources */,
 				F16D4C4D20285B54005404A1 /* Assets.xcassets in Resources */,
-				F16D4C7420286243005404A1 /* Icon-256.png in Resources */,
 				F16D4C4B20285B54005404A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
