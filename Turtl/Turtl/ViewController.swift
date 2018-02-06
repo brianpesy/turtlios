@@ -16,20 +16,27 @@ class ViewController: UIViewController {
     @IBAction func loginEnter(_ sender: Any) {
         //Verify email, need conditional segue as well
         
-        if username.text != "" && password.text != ""{
+        let userLogin = UserDefaults.standard.string(forKey: "username")
+        let passwordLogin = UserDefaults.standard.string(forKey: "password")
+
+        if (username.text != "" && password.text != "") || (userLogin != "" && passwordLogin != ""){
+            if (username.text != "" || password.text != ""){
+                UserDefaults.standard.set(username.text, forKey: "username")
+                UserDefaults.standard.set(password.text, forKey: "password")
+            }
             
             performSegue(withIdentifier: "loginSegue", sender: self)
         } else {
-            
+            errorAlert(title: "Error", message: "Please enter your credentials properly.")
         }
-        
     }
+
     
     override func viewDidAppear(_ animated: Bool) {
-        noInternetAlert(title: "No Connection", message: "Your data will not be synced to Turtl servers.")
+        errorAlert(title: "No Connection", message: "Your data will not be synced to Turtl servers.")
     }
     
-    func noInternetAlert(title:String, message:String){
+    func errorAlert(title:String, message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)}))
         
@@ -39,6 +46,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
