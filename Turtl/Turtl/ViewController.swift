@@ -17,12 +17,23 @@ class ViewController: UIViewController {
         //Verify email, need conditional segue as well
         
         if username.text != "" && password.text != ""{
+            
             performSegue(withIdentifier: "loginSegue", sender: self)
-            print(username.text!)
         } else {
             
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        noInternetAlert(title: "No Connection", message: "Your data will not be synced to Turtl servers.")
+    }
+    
+    func noInternetAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)}))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
