@@ -12,6 +12,7 @@ Code History
   Programmer   Date       Description
   Brian Sy     01/29/18   Creation, added loginEnter function
   Brian Sy     02/01/18   Added GUI, and errorAlert function
+  Brian Sy     02/09/18   Added switchAccounts and refresh functions
 
 File Creation Date: 01/29/18
 Development Group: Joan Nicole Balugay, Brian Sy
@@ -23,17 +24,46 @@ Purpose of the Software: Note taking application - Turtl
 import UIKit
 
 class ViewController: UIViewController{
-     /*usernameLabel is the label for the username. username holds the data to be read for the login page. password holds the data to be read for the login page. */
+     /*usernameLabel is the label for the username. username holds the data to be read for the login page. password holds the data to be read for the login page. LoggedInUser shows the current logged in user in a label.*/
      @IBOutlet var usernameLabel: UILabel!
      @IBOutlet var username: UITextField!
      @IBOutlet var password: UITextField!
+    @IBOutlet var loggedInUser: UILabel!
     
+    /* 2/9/18 userLogin and passwordLogin both gets the value inside the key "username" and "password" respectively that was stored in a previous session*/
+    
+    var userLogin = UserDefaults.standard.string(forKey: "username")
+    var passwordLogin = UserDefaults.standard.string(forKey: "password")
+    
+    
+    /* refresh. 2/9/18. This refreshes the UI and makes sure everything is up to date. */
+    
+    @IBAction func refresh(_ sender: Any) {
+        if userLogin == ""{
+            loggedInUser.text = "No logged in user."
+        } else if userLogin != ""{
+            loggedInUser.text = "Welcome \(userLogin!)!"
+        }
+        
+    
+    }
+    
+    /* switchAccounts. 2/9/18. Logs out the user and allows the user to switch accounts */
+    
+    @IBAction func switchAccounts(_ sender: Any) {
+        UserDefaults.standard.set("", forKey: "username")
+        userLogin = UserDefaults.standard.string(forKey: "username")
+        UserDefaults.standard.set("", forKey: "password")
+        passwordLogin = UserDefaults.standard.string(forKey: "password")
+        
+        loggedInUser.text = "No logged in user."
+        
+    }
     /* loginEnter. 1/29/18. It logs the user in as the user inputs data inside. This is an action and does not return a value for any future usage.  */
     
      @IBAction func loginEnter(_ sender: Any){
         /* Verify previous session, need conditional segue as well. It will go into the next segue as the button is pressed. userLogin and passwordLogin will retrieve any previous session's username and password to work with.*/
-        let userLogin = UserDefaults.standard.string(forKey: "username")
-        let passwordLogin = UserDefaults.standard.string(forKey: "password")
+
         
         /* Checks if the username text field has information stored inside. If not, then we check for any previous sessions insead */
         
