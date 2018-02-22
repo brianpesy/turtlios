@@ -13,7 +13,7 @@ Code History
   Brian Sy             01/29/18   Creation
   Joan Nicole Balugay  01/29/18   Creation
 
-File Creation Date: 01/29/118
+File Creation Date: 01/29/18
 Development Group: Joan Nicole Balugay, Brian Sy
 Client Group: CS 192
 Purpose of the Software: Note taking application - Turtl

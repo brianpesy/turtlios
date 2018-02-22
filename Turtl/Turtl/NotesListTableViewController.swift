@@ -9,23 +9,30 @@
  
  
  Code History
- Programmer           Date       Description
- Brian Sy             01/29/18   Creation
- Joan Nicole Balugay  01/29/18   Creation
+ Programmer             Date       Description
+ Joan Nicole Balugay    02/13/18   Creation, Edited storyboard
+ Joan Nicole Balugay    02/17/18   Added addNote, tableView, editNote, saveNotes, prepare
+                                   Edited viewDidLoad, viewDidAppear
  
- File Creation Date: 01/29/118
+ File Creation Date: 02/13/18
  Development Group: Joan Nicole Balugay, Brian Sy
  Client Group: CS 192
  Purpose of the Software: Note taking application - Turtl
+
+ Reference: https://www.packtpub.com/sites/default/files/downloads/6718OS_Chapter9.pdf. Last accessed: 02/17/18
  */
 
 import UIKit
 
+/* Class that handles the NotesList */
 class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
-
+    
+    /* notesArr is a dictionary used to store the notes.
+       index is used for the index of the notes. */
     var notesArr = [[String:String]]()
     var index = -1
     
+    /* addNote. 02/17/18. This is called when the add button is pressed.  This creates a new instance of the note, adds the note to the top of the dictionary, reloads the table, transtions to the ViewNoteController, and saves the note. */
     @IBAction func addNote() {
         
         let newNote = ["title" : "", "body":""]
@@ -36,7 +43,7 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         saveNotes()
     }
     
-    
+    /* viewDidLoad. 02/17/18.  This customizes the navigation bar and checks if there are existing notes in the phone, this stores the notes in the notesArr. */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,32 +67,22 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    /*override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let height: CGFloat = 100
-        let bounds = self.navigationController!.navigationBar.bounds
-        self.navigationController?.navigationBar.frame = CGRect(x:0, y:0, width: bounds.width, height:bounds.height + height)
-    }
+    }*/
     
-/*    @objc func goToBoards() {
-        performSegue(withIdentifier: "boardsSegue", sender: nil)
-    }
-    @objc func goToSharing() {
-        performSegue(withIdentifier: "sharingSegue", sender: nil)    }
-*/
+    /* didReceiveMemoryWarning. 02/13/18. Dispose of any resources that can be recreated. */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
-
+    /* tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int. 02/17/18.  This returns the number of rows in the section which is the number of notes in the  dictionary. */
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // Return number of rows in the section
         return notesArr.count
     }
 
-    
+    /* tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell. 02/17/18.  This grabs the selected note from the dictionary, sets the title of the note, and returns the note. */
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let note = tableView.dequeueReusableCell(withIdentifier: "NotesCell", for: indexPath)
         note.textLabel!.text = notesArr[indexPath.row]["title"]
@@ -93,11 +90,13 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         return note
     }
     
+    /* tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath). 02/17/18.  This is called when a note is selected.  This will transition to the ViewNoteController of the selected note. */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.index = indexPath.row
         performSegue(withIdentifier: "editorSegue", sender: nil)
     }
     
+    /* prepare(for segue: UIStoryboardSegue, sender: Any?). 02/17/18.  This sets the ViewNoteController as the next transition.  This also sets the title in the navigation bar as the title of the selected note. */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let notesEditor = segue.destination as! ViewNoteController
         
@@ -106,7 +105,7 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         notesEditor.delegate = self
     }
     
-
+    /* editNote(newTitle: String, andBody newBody: String). 02/17/18. This is used to update the table when there are changes in a note.  This gets two strings as the title and body of the note. Then, this sets the title and body of a note to the inputs, updates the table, and saves the notes. */
     func editNote(newTitle: String, andBody newBody: String) {
         self.notesArr[self.index]["title"] = newTitle
         self.notesArr[self.index]["body"] = newBody
@@ -117,6 +116,7 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         //Delete after adding tba
     }
     
+    /* saveNotes. 02/17/18. This saves the notes dictionary in the phone. */
     func saveNotes() {
         UserDefaults.standard.set(notesArr, forKey: "notes")
         UserDefaults.standard.synchronize()
