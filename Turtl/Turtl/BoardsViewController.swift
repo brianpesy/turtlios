@@ -21,12 +21,9 @@ Purpose of the Software: Note taking application - Turtl
 import UIKit
 
 /* BoardsViewController handles the methods for the Boards page in Turtl. */
-class BoardsViewController: UIViewController{
+class BoardsViewController: UITableViewController{
     
-     @IBOutlet var boards: UIImageView!
-     @IBOutlet var mainButton: UIButton!
-     @IBOutlet var sharingButton: UIButton!
-    
+
     /* Do any additional setup after loading the view. */
      override func viewDidLoad(){
         super.viewDidLoad()

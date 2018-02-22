@@ -13,6 +13,7 @@ Code History
   Brian Sy     01/29/18   Creation, added loginEnter function
   Brian Sy     02/01/18   Added GUI, and errorAlert function
   Brian Sy     02/09/18   Added switchAccounts and refresh functions
+  Brian Sy     02/22/18   Bug fixes
 
 File Creation Date: 01/29/18
 Development Group: Joan Nicole Balugay, Brian Sy
