@@ -14,7 +14,7 @@ Code History
   Brian Sy     02/01/18   Added GUI, and errorAlert function
   Brian Sy     02/09/18   Added switchAccounts and refresh functions
   Brian Sy     02/22/18   Bug fixes
-
+  Brian Sy     02/23/18   Fixed toolbar issue, added viewWillAppear and viewWillDisappear
 File Creation Date: 01/29/18
 Development Group: Joan Nicole Balugay, Brian Sy
 Client Group: CS 192
@@ -104,6 +104,23 @@ class ViewController: UIViewController{
     
      override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
+     }
+    
+     /*viewWillAppear. 2/23/18. Hiding navigation bar in the controller.*/
+    
+     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setToolbarHidden(true, animated: animated)
+
+     }
+     /*viewWillDisappear. 2/23/18. Show the navigation bar on other view controllers*/
+     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setToolbarHidden(false, animated: false)
      }
 }
 
