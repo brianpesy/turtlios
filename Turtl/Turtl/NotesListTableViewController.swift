@@ -5,7 +5,7 @@
  University of the Philippines, Diliman
  for the AY 2017-2018
  
- This code is created by Joan Nicole Balugay and Brian Sy.
+ This code is created by Joan Nicole Balugay.
  
  
  Code History
