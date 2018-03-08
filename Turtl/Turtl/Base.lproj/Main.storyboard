@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pur-UF-GkA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -246,8 +246,14 @@
                         <viewLayoutGuide key="safeArea" id="4wI-od-HEg"/>
                     </view>
                     <toolbarItems>
+                        <barButtonItem systemItem="trash" id="vof-D9-nw3">
+                            <color key="tintColor" red="0.51085549590000001" green="0.70266759400000001" blue="0.37532338500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="deleteAlert" destination="hGO-5G-xpj" id="ybL-ot-bLn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="60y-1d-PcA"/>
-                        <barButtonItem systemItem="save" id="K9X-sV-g7Y">
+                        <barButtonItem title="Sync" id="K9X-sV-g7Y">
                             <color key="tintColor" red="0.51085549590000001" green="0.70266759400000001" blue="0.37532338500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="saveNote" destination="hGO-5G-xpj" id="NnU-FW-ZGC"/>
@@ -257,7 +263,10 @@
                     <navigationItem key="navigationItem" id="SDS-HY-3B4"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="deleteButton" destination="vof-D9-nw3" id="tml-N8-aSR"/>
+                        <outlet property="saveButton" destination="K9X-sV-g7Y" id="KE0-Rw-RUN"/>
                         <outlet property="textBody" destination="bD5-nr-wQp" id="Zko-te-ory"/>
+                        <segue destination="pur-UF-GkA" kind="showDetail" identifier="notesListSegue" action="showViewController:sender:" id="wKn-nC-iBq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3NX-GD-wkG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -298,6 +307,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="pur-UF-GkA" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ppu-Fv-qpK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4PB-ue-1c0">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -322,5 +332,8 @@
         <image name="loginfull" width="414" height="736"/>
         <image name="refresh-1" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wKn-nC-iBq"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.94110429289999997" green="0.94121712449999995" blue="0.94106596710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

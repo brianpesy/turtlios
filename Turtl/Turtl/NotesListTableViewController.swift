@@ -23,12 +23,36 @@
  */
 
 import UIKit
+import CryptoSwift
+
 
 /* Class that handles the NotesList */
 class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
     
-    /*logOutButton 2/23/2018. Button used for logging out*/
+    func generateRandomNumber128() -> String{
+        var i = 0
+        var key = ""
+        while(i < 16){
+            var randomNumber = String(arc4random_uniform(10))
+            key = key + randomNumber
+            i = i + 1
+        }
+        return key
+    }
     
+    func generateRandomNumber64() -> String{
+        var i = 0
+        var key = ""
+        while(i < 8){
+            var randomNumber = String(arc4random_uniform(10))
+            key = key + randomNumber
+            i = i + 1
+        }
+        return key
+    }
+    
+    
+    /*logOutButton 2/23/2018. Button used for logging out*/
     @IBAction func logOutButton(_ sender: Any) {
         performSegue(withIdentifier: "logOutSegue", sender: self)
         
@@ -38,10 +62,10 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
      var notesArr = [[String:String]]()
      var index = -1
     
+   
      /* addNote. 02/17/18. This is called when the add button is pressed.  This creates a new instance of the note, adds the note to the top of the dictionary, reloads the table, transtions to the ViewNoteController, and saves the note. */
      @IBAction func addNote() {
-        
-         let newNote = ["title" : "", "body":""]
+         var newNote = ["title" : "", "body":"", "key":"", "iv":""]
          notesArr.insert(newNote, at: 0)
          self.index = 0
          self.tableView.reloadData()
@@ -70,6 +94,7 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         if let prevNotes = UserDefaults.standard.array(forKey: "notes") as? [[String:String]] {
             notesArr = prevNotes
         }
+        tableView.tableFooterView = UIView()
 
     }
     
@@ -92,7 +117,6 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let note = tableView.dequeueReusableCell(withIdentifier: "NotesCell", for: indexPath)
         note.textLabel!.text = notesArr[indexPath.row]["title"]
-
         return note
      }
     
@@ -109,29 +133,53 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
             notesEditor.navigationItem.title = notesArr[self.index]["title"]
             notesEditor.strTextBody = notesArr[self.index]["body"]
             notesEditor.delegate = self
-        } else if segue.identifier == "logOutSegue"{
-
         }
-
+        else if segue.identifier == "logOutSegue"{
+            
+        }
      }
     
     /* editNote(newTitle: String, andBody newBody: String). 02/17/18. This is used to update the table when there are changes in a note.  This gets two strings as the title and body of the note. Then, this sets the title and body of a note to the inputs, updates the table, and saves the notes. */
      func editNote(newTitle: String, andBody newBody: String) {
+        print(self.index)
         self.notesArr[self.index]["title"] = newTitle
         self.notesArr[self.index]["body"] = newBody
+        if self.notesArr[self.index]["key"] == "" {
+            self.notesArr[self.index]["key"] = generateRandomNumber128()
+        }
+        self.notesArr[self.index]["iv"] = generateRandomNumber64()
+        print(notesArr)
+        
+        if(self.notesArr[self.index]["title"] == "") {
+            self.notesArr.remove(at: self.index)
+        }
+        var message = " " + self.notesArr[self.index]["body"]!
+        do {
+        let encrypted = try Rabbit(key: self.notesArr[self.index]["key"]!, iv: self.notesArr[self.index]["iv"]!).encrypt(Array(message.utf8))
+        print(encrypted)
+        let decrypted = try Rabbit(key: self.notesArr[self.index]["key"]!, iv: self.notesArr[self.index]["iv"]!).decrypt(encrypted)
+        print(decrypted) //The output is in decimal. Change to base64. Base64 to string.
+
+        } catch {
+            print("Error in the encryption process")
+        }
         
         self.tableView.reloadData()
         saveNotes()
-        
-        //Delete after adding tba
      }
     
     /* saveNotes. 02/17/18. This saves the notes dictionary in the phone. */
      func saveNotes() {
         UserDefaults.standard.set(notesArr, forKey: "notes")
         UserDefaults.standard.synchronize()
-        
      }
+    
+    func deleteNote() {
+        print(self.index)
+        self.notesArr.remove(at: self.index)
+        self.tableView.reloadData()
+        saveNotes()
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

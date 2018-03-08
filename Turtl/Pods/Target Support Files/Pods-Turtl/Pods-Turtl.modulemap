@@ -1,0 +1,6 @@
+framework module Pods_Turtl {
+  umbrella header "Pods-Turtl-umbrella.h"
+
+  export *
+  module * { export * }
+}

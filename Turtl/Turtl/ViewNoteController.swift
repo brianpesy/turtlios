@@ -26,6 +26,7 @@ import UIKit
 /* A protocol that notifies the NotesListTableViewController that an edit was made and changes the data in the table */
 protocol ViewNoteDelegate {
     func editNote(newTitle: String, andBody newBody: String)
+    func deleteNote()
 }
 
 /* Class that handles the ViewNote */
@@ -41,7 +42,8 @@ class ViewNoteController: UIViewController, UITextViewDelegate {
      var delegate : ViewNoteDelegate?
      @IBOutlet var saveButton: UIBarButtonItem!
      
-
+    @IBOutlet var deleteButton: UIBarButtonItem!
+    
      /* saveNote. 02/17/18. This marks the added note as saved.  It first sets the textView to be the first responder to make the keyboard visible.  Then, it checks if the delegate exists.  If it exists, a call to the editNote is made to edit the note with the title and body inputs. */
      @IBAction func saveNote() {
          self.textBody.resignFirstResponder()
@@ -50,6 +52,27 @@ class ViewNoteController: UIViewController, UITextViewDelegate {
              self.delegate!.editNote(newTitle: self.navigationItem.title!, andBody: self.textBody.text)
          }
      }
+    
+    @IBAction func deleteAlert() {
+        let deleteAlert = UIAlertController(title: "Delete note", message: "Are you sure you want to delete the note?", preferredStyle: UIAlertControllerStyle.alert)
+        deleteAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
+            (action: UIAlertAction!) in self.deleteYes()}))
+        deleteAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in print("Handle No")}))
+        
+        present(deleteAlert, animated:true, completion:nil)
+        deleteAlert.view.tintColor = UIColor.init(red: CGFloat(130.0/255.0), green: CGFloat(179.0/255.0), blue: CGFloat(96.0/255.0), alpha: CGFloat(1.0))
+    }
+    
+    func deleteYes() {
+        self.delegate!.deleteNote()
+        performSegue(withIdentifier: "notesListSegue", sender: nil)
+        
+    }
+   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "notesListSegue"{
+            let notesEditor = segue.destination as! ViewNoteController
+        }
+    }*/
      
      /* viewDidLoad. 02/17/18. This sets the textBody's text to the string strTextBody, makes the textBody the first responder and sets the delegate to self. */
      override func viewDidLoad() {
@@ -85,7 +108,7 @@ class ViewNoteController: UIViewController, UITextViewDelegate {
          self.navigationItem.title = ""
          
          for item in components {
-             if item.trimmingCharacters(in: .whitespacesAndNewlines).characters.count > 0 {
+             if item.trimmingCharacters(in: .whitespacesAndNewlines).count > 0 {
                  self.navigationItem.title = item
                  break
              }
