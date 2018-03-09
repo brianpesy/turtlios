@@ -13,6 +13,7 @@
  Joan Nicole Balugay    02/13/18    Creation, Edited storyboard
  Joan Nicole Balugay    02/17/18    Added saveNote, ViewNoteDelegate, textViewDidBeginEditing, textViewDidChange.
                                     Edited viewWillDisappear
+ Joan Nicole Balugay    03/06/18    Added deleteAlert and deleteYes
  
  File Creation Date: 02/13/18
  Development Group: Joan Nicole Balugay, Brian Sy
@@ -23,7 +24,7 @@
  */
 import UIKit
 
-/* A protocol that notifies the NotesListTableViewController that an edit was made and changes the data in the table */
+/* A protocol that notifies the NotesListTableViewController that a change was made and changes the data in the table */
 protocol ViewNoteDelegate {
     func editNote(newTitle: String, andBody newBody: String)
     func deleteNote()
@@ -53,6 +54,7 @@ class ViewNoteController: UIViewController, UITextViewDelegate {
          }
      }
     
+    /* deleteAlert. 03/06/18. This is called when the delete button is pressed.  An alert message is shown to ask the user if they really want to delete the note.  If the user chooses No, nothing happens. If the user chooses Yes, deleteYes is called. */
     @IBAction func deleteAlert() {
         let deleteAlert = UIAlertController(title: "Delete note", message: "Are you sure you want to delete the note?", preferredStyle: UIAlertControllerStyle.alert)
         deleteAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
@@ -63,6 +65,7 @@ class ViewNoteController: UIViewController, UITextViewDelegate {
         deleteAlert.view.tintColor = UIColor.init(red: CGFloat(130.0/255.0), green: CGFloat(179.0/255.0), blue: CGFloat(96.0/255.0), alpha: CGFloat(1.0))
     }
     
+    /* deleteYes. 03/06/18. This is used to call the deleteNote in the NotesListTableViewController. */
     func deleteYes() {
         self.delegate!.deleteNote()
         performSegue(withIdentifier: "notesListSegue", sender: nil)

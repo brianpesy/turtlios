@@ -33,27 +33,6 @@ class ViewController: UIViewController{
      @IBOutlet var password: UITextField!
     @IBOutlet var loggedInUser: UILabel!
     
-    func generateRandomNumber128() -> String{
-        var i = 0
-        var key = ""
-        while(i < 16){
-            var randomNumber = String(arc4random_uniform(10))
-            key = key + randomNumber
-            i = i + 1
-        }
-        return key
-    }
-    func generateRandomNumber64() -> String{
-        var i = 0
-        var key = ""
-        while(i < 8){
-            var randomNumber = String(arc4random_uniform(10))
-            key = key + randomNumber
-            i = i + 1
-        }
-        return key
-    }
-    
     /* 2/9/18 userLogin and passwordLogin both gets the value inside the key "username" and "password" respectively that was stored in a previous session*/
     
     var userLogin = UserDefaults.standard.string(forKey: "username")
@@ -68,22 +47,6 @@ class ViewController: UIViewController{
         } else if userLogin != ""{
             loggedInUser.text = "Welcome \(userLogin!)!"
         }
-        
-        var text = "10375982740"
-        var key = generateRandomNumber128()
-        var iv = generateRandomNumber64()
-        //        print(key)
-        //        print(key.count)
-        
-        do {
-            var message = Array(text.utf8)
-            let encrypted = try Rabbit(key: key, iv: iv).encrypt(message)
-            print(encrypted)
-            let decrypted = try Rabbit(key: key, iv: iv).decrypt(encrypted)
-            print(decrypted)
-        } catch {}
-        
-    
     }
     
     /* switchAccounts. 2/9/18. Logs out the user and allows the user to switch accounts */
