@@ -36,6 +36,48 @@ extension Collection {
     }
 }
 
+public struct Queue<T> {
+    
+    // 2
+    var list = [T]()
+    
+    public var isEmpty: Bool {
+        return list.isEmpty
+    }
+    
+    // 3
+    public mutating func enqueue(_ element: T) {
+        list.append(element)
+    }
+    
+    // 4
+    public mutating func dequeue() -> T? {
+        if !list.isEmpty {
+            return list.removeFirst()
+        } else {
+            return nil
+        }
+    }
+    
+    // 5
+    public func peek() -> T? {
+        if !list.isEmpty {
+            return list[0]
+        } else {
+            return nil
+        }
+    }
+}
+
+var toPass = Array<UInt8>()
+//var toSync = Queue<Array<UInt8>>()
+//var toSync: [Array<UInt8>] = []
+var toSync  = [Array<UInt8>?](repeating: nil, count:100)
+var doneSync: [Int] = []
+var doneSyncCtr = 0
+var univOldBody = ""
+
+
 /* Class that handles the NotesList */
 class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
     
@@ -150,11 +192,17 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         else if segue.identifier == "logOutSegue"{
             
         }
+        
+        var syncController = segue.destination as! ViewNoteController
+        syncController.received = toPass
+        
     }
     
     /* editNote(newTitle: String, andBody newBody: String). 02/17/18. This is used to update the table when there are changes in a note.  This gets two strings as the title and body of the note. Then, this sets the title and body of a note to the inputs, updates the table, and saves the notes. As the editNote function happens, keys are generated. The key is constant per note and the IV is always changing. After which, it goes into encryption. Otherwise, it catches the error in encryption.*/
     func editNote(newTitle: String, andBody newBody: String) {
         if self.notesArr[safe: self.index] != nil {
+            var oldBody = self.notesArr[self.index]["body"]
+            univOldBody = oldBody!
             self.notesArr[self.index]["title"] = newTitle
             self.notesArr[self.index]["body"] = newBody
             if self.notesArr[self.index]["key"] == "" {
@@ -167,11 +215,40 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
                 self.notesArr.remove(at: self.index)
             }
             var message = " " + self.notesArr[self.index]["body"]!
+    
             do {
                 let encrypted = try Rabbit(key: self.notesArr[self.index]["key"]!, iv: self.notesArr[self.index]["iv"]!).encrypt(Array(message.utf8))
                 print(encrypted)
-                let decrypted = try Rabbit(key: self.notesArr[self.index]["key"]!, iv: self.notesArr[self.index]["iv"]!).decrypt(encrypted)
-                print(decrypted) //The output is in decimal. Change to base64. Base64 to string.
+
+                if self.notesArr[self.index]["body"] == oldBody{
+
+                    if doneSync.contains(self.index){
+
+                    } else if !doneSync.contains(self.index){
+ 
+                        doneSync.append(self.index)
+                        if let i = doneSync.index(of: self.index){
+
+                            toSync[i] = encrypted
+
+                        }
+                    }
+                } else {
+                    print("The test wasn't quite the same")
+                    if oldBody == ""{
+                        toSync[notesArr.count-1] = encrypted
+
+                    }
+                    else if let i = doneSync.index(of: self.index){
+                        toSync[i] = encrypted
+                    }
+                    
+                }
+                print(toSync)
+
+
+//                let decrypted = try Rabbit(key: self.notesArr[self.index]["key"]!, iv: self.notesArr[self.index]["iv"]!).decrypt(encrypted)
+//                print(decrypted) //The output is in decimal. Change to base64. Base64 to string.
                 
             } catch {
                 print("Error in the encryption process")
@@ -192,6 +269,17 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
     func deleteNote() {
         self.notesArr.remove(at: self.index)
         self.tableView.reloadData()
+
+        print(univOldBody)
+        if univOldBody == ""{
+            toSync[notesArr.count] = nil
+        }
+        else if let i = doneSync.index(of: self.index){
+            toSync[i] = nil
+            doneSync[i] = 9999999
+        }
+        print(toSync)
+
         saveNotes()
     }
     /*

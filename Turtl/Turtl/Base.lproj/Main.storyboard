@@ -256,7 +256,7 @@
                         <barButtonItem title="Sync" id="K9X-sV-g7Y">
                             <color key="tintColor" red="0.51085549590000001" green="0.70266759400000001" blue="0.37532338500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="saveNote" destination="hGO-5G-xpj" id="NnU-FW-ZGC"/>
+                                <action selector="syncNote:" destination="hGO-5G-xpj" id="dRw-z5-BQh"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -333,7 +333,7 @@
         <image name="refresh-1" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wKn-nC-iBq"/>
+        <segue reference="fsA-up-2be"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.94110429289999997" green="0.94121712449999995" blue="0.94106596710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

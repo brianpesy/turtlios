@@ -30,9 +30,10 @@ protocol ViewNoteDelegate {
     func deleteNote()
 }
 
+//var encryptedList = Queue<Array<UInt8>>()
 /* Class that handles the ViewNote */
 class ViewNoteController: UIViewController, UITextViewDelegate {
-     
+    var received = Array<UInt8>()
      /* textBody is used to hold the TextView.
         strTextBody is the textBody treated as a string.
         delegate is used for editNote.
@@ -53,6 +54,7 @@ class ViewNoteController: UIViewController, UITextViewDelegate {
              self.delegate!.editNote(newTitle: self.navigationItem.title!, andBody: self.textBody.text)
          }
      }
+    
     
     /* deleteAlert. 03/06/18. This is called when the delete button is pressed.  An alert message is shown to ask the user if they really want to delete the note.  If the user chooses No, nothing happens. If the user chooses Yes, deleteYes is called. */
     @IBAction func deleteAlert() {
