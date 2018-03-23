@@ -14,8 +14,10 @@
  Joan Nicole Balugay    02/17/18   Added addNote, tableView, editNote, saveNotes, prepare
  Edited viewDidLoad, viewDidAppear
  Brian Sy               02/23/18   Added logout button. Edited prepare function
- Brian Sy               03/05/18    Added Rabbit encryption and RNG for 128 bits and 64 bits.
+ Brian Sy               03/05/18   Added Rabbit encryption and RNG for 128 bits and 64 bits.
  Joan Nicole Balugay    03/06/18   Added deleteNote and edited editNote
+ Brian Sy               03/16/18   Edited editNote, saveNote, deleteNote for synchronization process, and
+ Brian Sy               03/23/18   synchronizeNote added for future implementation
  
  
  File Creation Date: 02/13/18
@@ -69,9 +71,9 @@ public struct Queue<T> {
     }
 }
 
+/*Necessary variables for synchronization */
+
 var toPass = Array<UInt8>()
-//var toSync = Queue<Array<UInt8>>()
-//var toSync: [Array<UInt8>] = []
 var toSync  = [Array<UInt8>?](repeating: nil, count:100)
 var doneSync: [Int] = []
 var doneSyncCtr = 0
@@ -94,7 +96,7 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
     }
     
     /*generateRandomNumber64 3/5/2018. Used for generating a 64 bit number. */
-
+    
     func generateRandomNumber64() -> String{
         var i = 0
         var key = ""
@@ -104,6 +106,11 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
             i = i + 1
         }
         return key
+    }
+    
+    /*synchronizeNote 3/23/18. This is the function to synchronize the note to the server. It needs to be able to take in toSync and then synchronize it with Turtl's servers.*/
+    func synchronizeNote(syncArray: Array<UInt8>){
+        
     }
     
     
@@ -127,6 +134,7 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         performSegue(withIdentifier: "editorSegue", sender: nil)
         saveNotes()
     }
+
     
     /* viewDidLoad. 02/17/18.  This customizes the navigation bar and checks if there are existing notes in the phone, this stores the notes in the notesArr. */
     override func viewDidLoad() {
@@ -134,7 +142,6 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         
         let mainButton:UIBarButtonItem = UIBarButtonItem(title: "All Notes", style: UIBarButtonItemStyle.plain, target: self, action: nil)
         let boardsButton:UIBarButtonItem = UIBarButtonItem(title: "Boards", style: UIBarButtonItemStyle.plain, target: self, action: nil)
-        
         let sharingButton:UIBarButtonItem = UIBarButtonItem(title: "Sharing", style: UIBarButtonItemStyle.plain, target: self, action: nil)
         
         mainButton.tintColor = UIColor.init(red: CGFloat(254.0/255.0), green: CGFloat(254.0/255.0), blue: CGFloat(254.0/255.0), alpha: CGFloat(1.0))
@@ -150,7 +157,6 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
             notesArr = prevNotes
         }
         tableView.tableFooterView = UIView()
-        
     }
     
     /*override func viewDidAppear(_ animated: Bool) {
@@ -198,7 +204,7 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         
     }
     
-    /* editNote(newTitle: String, andBody newBody: String). 02/17/18. This is used to update the table when there are changes in a note.  This gets two strings as the title and body of the note. Then, this sets the title and body of a note to the inputs, updates the table, and saves the notes. As the editNote function happens, keys are generated. The key is constant per note and the IV is always changing. After which, it goes into encryption. Otherwise, it catches the error in encryption.*/
+    /* editNote(newTitle: String, andBody newBody: String). 02/17/18. This is used to update the table when there are changes in a note.  This gets two strings as the title and body of the note. Then, this sets the title and body of a note to the inputs, updates the table, and saves the notes. As the editNote function happens, keys are generated. The key is constant per note and the IV is always changing. After which, it goes into encryption. Otherwise, it catches the error in encryption. Here, for the synchronization proper (need Turtl's actual servers for this one but is currently unavailable for iOS) happens as well most notably a data structure that holds notes to be synchronized*/
     func editNote(newTitle: String, andBody newBody: String) {
         if self.notesArr[safe: self.index] != nil {
             var oldBody = self.notesArr[self.index]["body"]
@@ -215,29 +221,30 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
                 self.notesArr.remove(at: self.index)
             }
             var message = " " + self.notesArr[self.index]["body"]!
-    
+            
             do {
                 let encrypted = try Rabbit(key: self.notesArr[self.index]["key"]!, iv: self.notesArr[self.index]["iv"]!).encrypt(Array(message.utf8))
                 print(encrypted)
-
+                
                 if self.notesArr[self.index]["body"] == oldBody{
-
+                    
                     if doneSync.contains(self.index){
-
-                    } else if !doneSync.contains(self.index){
- 
+                        print("test")
+                    }
+                    else if !doneSync.contains(self.index){
+                        
                         doneSync.append(self.index)
                         if let i = doneSync.index(of: self.index){
-
+                            
                             toSync[i] = encrypted
-
                         }
                     }
-                } else {
+                }
+                else {
                     print("The test wasn't quite the same")
                     if oldBody == ""{
                         toSync[notesArr.count-1] = encrypted
-
+                        
                     }
                     else if let i = doneSync.index(of: self.index){
                         toSync[i] = encrypted
@@ -245,10 +252,6 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
                     
                 }
                 print(toSync)
-
-
-//                let decrypted = try Rabbit(key: self.notesArr[self.index]["key"]!, iv: self.notesArr[self.index]["iv"]!).decrypt(encrypted)
-//                print(decrypted) //The output is in decimal. Change to base64. Base64 to string.
                 
             } catch {
                 print("Error in the encryption process")
@@ -269,7 +272,7 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
     func deleteNote() {
         self.notesArr.remove(at: self.index)
         self.tableView.reloadData()
-
+        
         print(univOldBody)
         if univOldBody == ""{
             toSync[notesArr.count] = nil
@@ -279,7 +282,7 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
             doneSync[i] = 9999999
         }
         print(toSync)
-
+        
         saveNotes()
     }
     /*

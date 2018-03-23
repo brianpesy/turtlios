@@ -13,6 +13,7 @@
 		0476CD67202443A200504726 /* NotesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476CD66202443A200504726 /* NotesListTableViewController.swift */; };
 		0476CD6920245DC500504726 /* ViewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476CD6820245DC500504726 /* ViewNoteController.swift */; };
 		A72DA0950BD2C149DB38457C /* Pods_Turtl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2636A94144891045427A9 /* Pods_Turtl.framework */; };
+		F105635C2064C4A400D0FD75 /* BoardsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F105635B2064C4A400D0FD75 /* BoardsListTableViewController.swift */; };
 		F16D4C4620285B54005404A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D4C4520285B54005404A1 /* AppDelegate.swift */; };
 		F16D4C4820285B54005404A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D4C4720285B54005404A1 /* ViewController.swift */; };
 		F16D4C4B20285B54005404A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16D4C4920285B54005404A1 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		0476CD66202443A200504726 /* NotesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListTableViewController.swift; sourceTree = "<group>"; };
 		0476CD6820245DC500504726 /* ViewNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNoteController.swift; sourceTree = "<group>"; };
 		EA3EB341B131B04BCC9068FA /* Pods-Turtl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Turtl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Turtl/Pods-Turtl.debug.xcconfig"; sourceTree = "<group>"; };
+		F105635B2064C4A400D0FD75 /* BoardsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsListTableViewController.swift; sourceTree = "<group>"; };
 		F16D4C4220285B54005404A1 /* Turtl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Turtl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16D4C4520285B54005404A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F16D4C4720285B54005404A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				F16D4C4520285B54005404A1 /* AppDelegate.swift */,
 				F16D4C4720285B54005404A1 /* ViewController.swift */,
 				F16D4C4920285B54005404A1 /* Main.storyboard */,
+				F105635B2064C4A400D0FD75 /* BoardsListTableViewController.swift */,
 				0476CD66202443A200504726 /* NotesListTableViewController.swift */,
 				04054B902023E9A900660563 /* BoardsViewController.swift */,
 				04054B922023E9B800660563 /* SharingViewController.swift */,
@@ -359,6 +362,7 @@
 				0476CD67202443A200504726 /* NotesListTableViewController.swift in Sources */,
 				0476CD6920245DC500504726 /* ViewNoteController.swift in Sources */,
 				F16D4C4820285B54005404A1 /* ViewController.swift in Sources */,
+				F105635C2064C4A400D0FD75 /* BoardsListTableViewController.swift in Sources */,
 				F16D4C4620285B54005404A1 /* AppDelegate.swift in Sources */,
 				04054B912023E9A900660563 /* BoardsViewController.swift in Sources */,
 				04054B932023E9B800660563 /* SharingViewController.swift in Sources */,

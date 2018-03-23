@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZj-UH-6RQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2197.5999999999999" y="1823.8380809595203"/>
+            <point key="canvasLocation" x="2876" y="1823.8380809595203"/>
         </scene>
         <!--View Note Controller-->
         <scene sceneID="0uY-vv-lGT">
@@ -253,18 +253,11 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="60y-1d-PcA"/>
-                        <barButtonItem title="Sync" id="K9X-sV-g7Y">
-                            <color key="tintColor" red="0.51085549590000001" green="0.70266759400000001" blue="0.37532338500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="syncNote:" destination="hGO-5G-xpj" id="dRw-z5-BQh"/>
-                            </connections>
-                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="SDS-HY-3B4"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="deleteButton" destination="vof-D9-nw3" id="tml-N8-aSR"/>
-                        <outlet property="saveButton" destination="K9X-sV-g7Y" id="KE0-Rw-RUN"/>
                         <outlet property="textBody" destination="bD5-nr-wQp" id="Zko-te-ory"/>
                         <segue destination="pur-UF-GkA" kind="showDetail" identifier="notesListSegue" action="showViewController:sender:" id="wKn-nC-iBq"/>
                     </connections>
@@ -272,35 +265,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3NX-GD-wkG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2036" y="984.55772113943033"/>
-        </scene>
-        <!--Boards View Controller-->
-        <scene sceneID="0fH-bg-rad">
-            <objects>
-                <tableViewController id="9EU-yk-teb" customClass="BoardsViewController" customModule="Turtl" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y8h-g2-N8H">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Bky-du-QLs">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bky-du-QLs" id="vBf-W5-9w2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9EU-yk-teb" id="klS-yp-8Yd"/>
-                            <outlet property="delegate" destination="9EU-yk-teb" id="T82-yK-IPq"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="yAY-ct-Ovl"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="af0-Yf-jvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1302" y="1824"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b0J-T1-ZEU">
@@ -333,7 +297,7 @@
         <image name="refresh-1" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fsA-up-2be"/>
+        <segue reference="wKn-nC-iBq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.94110429289999997" green="0.94121712449999995" blue="0.94106596710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
