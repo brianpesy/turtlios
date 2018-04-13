@@ -18,6 +18,7 @@
  Joan Nicole Balugay    03/06/18   Added deleteNote and edited editNote
  Brian Sy               03/16/18   Edited editNote, saveNote, deleteNote for synchronization process, and
  Brian Sy               03/23/18   synchronizeNote added for future implementation
+ Joan Nicole Balugay    04/11/18   Added share and board segue from the notes page.
  
  
  File Creation Date: 02/13/18
@@ -134,6 +135,21 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         performSegue(withIdentifier: "editorSegue", sender: nil)
         saveNotes()
     }
+    
+    /*BoardsButtonTapped. 04/12/18. Performs the transition to the boards controller. */
+
+    
+    @objc func BoardsButtonTapped(_ sender: UIBarButtonItem!) {
+        performSegue(withIdentifier: "NotesToBoardsSegue", sender: nil)
+    }
+    
+    /*ShareButtonTapped. 04/12/18. Performs the transition to the share controller. */
+
+    
+    @objc func ShareButtonTapped(_ sender: UIBarButtonItem!) {
+        performSegue(withIdentifier: "NotesToShareSegue", sender: nil)
+    }
+    
 
     
     /* viewDidLoad. 02/17/18.  This customizes the navigation bar and checks if there are existing notes in the phone, this stores the notes in the notesArr. */
@@ -141,8 +157,8 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
         super.viewDidLoad()
         
         let mainButton:UIBarButtonItem = UIBarButtonItem(title: "All Notes", style: UIBarButtonItemStyle.plain, target: self, action: nil)
-        let boardsButton:UIBarButtonItem = UIBarButtonItem(title: "Boards", style: UIBarButtonItemStyle.plain, target: self, action: nil)
-        let sharingButton:UIBarButtonItem = UIBarButtonItem(title: "Sharing", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        let boardsButton:UIBarButtonItem = UIBarButtonItem(title: "Boards", style: UIBarButtonItemStyle.plain, target: self, action: #selector(NotesListTableViewController.BoardsButtonTapped(_:)))
+        let sharingButton:UIBarButtonItem = UIBarButtonItem(title: "Sharing", style: UIBarButtonItemStyle.plain, target: self, action: #selector(NotesListTableViewController.ShareButtonTapped(_:)))
         
         mainButton.tintColor = UIColor.init(red: CGFloat(254.0/255.0), green: CGFloat(254.0/255.0), blue: CGFloat(254.0/255.0), alpha: CGFloat(1.0))
         boardsButton.tintColor = UIColor.init(red: CGFloat(188.0/255.0), green: CGFloat(188.0/255.0), blue: CGFloat(188.0/255.0), alpha: CGFloat(1.0))
@@ -194,13 +210,18 @@ class NotesListTableViewController: UITableViewController, ViewNoteDelegate {
             notesEditor.navigationItem.title = notesArr[self.index]["title"]
             notesEditor.strTextBody = notesArr[self.index]["body"]
             notesEditor.delegate = self
+            
+            var syncController = segue.destination as! ViewNoteController
+            syncController.received = toPass
         }
         else if segue.identifier == "logOutSegue"{
             
         }
+        else if segue.identifier == "NotesToBoardsSegue" {
+            
+        }
         
-        var syncController = segue.destination as! ViewNoteController
-        syncController.received = toPass
+        
         
     }
     
